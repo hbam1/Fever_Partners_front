@@ -3,8 +3,29 @@ import { Link } from "react-router-dom";
 import naver from "../assets/naver.png"
 import kakao from "../assets/kakao.png"
 import google from "../assets/google.webp"
+import {login} from "../AuthAPI"
 
 function Login () {
+    const [values, setValues] = useState({
+        email: "",
+        password: "",
+    });
+
+    const handleChange = async (e) => {
+        setValues({...values,
+            [e.target.id]: e.target.value,
+        });
+    }
+
+    const handleSubmit = async (e) => {
+        login(values)
+        .then((response) => {
+            window.location.href = `/main`;
+        }).catch((error) => {
+            console.log(error);
+        });
+    }
+
     return (
         <div id={styles.login_container}>
             <div className={styles.page_back_header}>
@@ -15,9 +36,9 @@ function Login () {
             <div id={styles.login_box}>
                 <span>계정</span>
                 <div id={styles.login_form}>
-                    <input placeholder="이메일 입력"></input>
-                    <input placeholder="비밀번호 입력"></input>
-                    <button type="submit">로그인</button>
+                    <input placeholder="이메일 입력" id="email" onChange={handleChange} value={values.email}></input>
+                    <input placeholder="비밀번호 입력" id="password" onChange={handleChange} value={values.password}></input>
+                    <button type="submit" onClick={handleSubmit}>로그인</button>
                 </div>
                 <div id={styles.login_service}>
                     <Link to={``}>계정 찾기</Link>

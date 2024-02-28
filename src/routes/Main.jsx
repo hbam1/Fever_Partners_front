@@ -1,6 +1,7 @@
 import styles from "./css/Main.module.css";
 import logo from "../assets/main_logo.png"
 import { Link } from "react-router-dom";
+import { AuthAPI } from "../AuthAPI"
 
 function Main() {
     return (
