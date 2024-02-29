@@ -5,7 +5,7 @@ let REFRESH_TOKEN = getCookie("refresh");
 let CSRF_TOKEN = getCookie("csrftoken");
 
 /** CREATE CUSTOM AXIOS INSTANCE */
-export const AuthApi = axios.create({
+export const AuthAPI = axios.create({
     baseURL: 'http://localhost:8000',
     headers: {
         'Content-Type': 'application/json',
@@ -26,4 +26,19 @@ export const login = async ({ email, password }) => {
     const data = { email, password };
     const response = await AuthApi.post(`/api/auth/`, data);
     return response.data;
+}
+
+function getCookie(key) {
+    let result = null;
+    let cookie = document.cookie.split(';');
+    cookie.some(function (item) {
+        item = item.replace(' ', '');
+
+        let dic = item.split('=');
+        if (key === dic[0]) {
+            result = dic[1];
+            return true;
+        }
+    });
+    return result;
 }
