@@ -21,7 +21,12 @@ function Login () {
     const handleSubmit = async (e) => {
         login(values)
         .then((response) => {
-            window.location.href = `/main`;
+            // HTTP 응답의 데이터에서 토큰 값을 가져옵니다.
+            const { access, refresh } = response.token;
+            // 토큰 값을 쿠키에 설정합니다.
+            document.cookie = `access=${access};`;
+            document.cookie = `refresh=${refresh};`;
+            // window.location.href = `/main`;
         }).catch((error) => {
             console.log(error);
         });
