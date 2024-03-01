@@ -28,14 +28,10 @@ function Main() {
                         <div class={styles.main_top_part_content}>
                             <div>어서오세요&nbsp; <h1 className={styles.neon}>닉네임</h1>님</div>
                             <div>
-                                <p>
                                     지금까지&nbsp;<h1 className={styles.neon}>100</h1>개의 목표를 등록하고
-                                </p>
                             </div>
                             <div>
-                                <p>
                                     &nbsp;<h1 className={styles.neon}>50</h1>개의 목표를 달성했습니다
-                                </p>
                             </div>
                             <div className={styles.gage_bar}>
                                 <p>My Fever Gage</p>
