@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import styles from "./css/Login.module.css";
 import { Link } from "react-router-dom";
 import naver from "../assets/naver.png"
