@@ -17,14 +17,14 @@ export const AuthAPI = axios.create({
 /** SIGNUP API */
 export const signUp = async ({ email, password1, password2 }) => {
     const data = { email, password1, password2 };
-    const response = await AuthApi.post(`/api/register/`, data);
+    const response = await AuthAPI.post(`/api/register/`, data);
     return response.data;
 }
 
 /** LOGIN API */
 export const login = async ({ email, password }) => {
     const data = { email, password };
-    const response = await AuthApi.post(`/api/auth/`, data);
+    const response = await AuthAPI.post(`/api/auth/`, data);
     return response.data;
 }
 
