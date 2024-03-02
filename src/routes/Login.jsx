@@ -34,11 +34,11 @@ function Login () {
 
     return (
         <div id={styles.login_container}>
-            <div className={styles.page_back_header}>
-                <span className={styles.page_back}>
-                    <i class="fa-solid fa-chevron-left"></i>
-                </span>
-            </div>
+        <div className={styles.page_back_header}>
+            <span className={styles.page_back}>
+                <i className="fa-solid fa-chevron-left"></i>
+            </span>
+        </div>
             <div id={styles.login_box}>
                 <span>계정</span>
                 <div id={styles.login_form}>
