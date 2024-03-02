@@ -1,0 +1,130 @@
+:root {
+    --main-color: #db4455;
+    --main-brighter: rgba(219, 68, 85, 0.8);
+    --gray-color: #A9A9A9;
+    --font-color: #6b6b6b;
+}
+
+button, input[type="button"], input[type="radio"], input[type="checkbox"] {
+    appearance: none;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.warning {
+    color: red;
+    font-size: 13px;
+    margin-top: 0.4vh;
+}
+
+.field_title {
+    font-weight: bold;
+    font-size: 2vh;
+    color: black;
+    border-bottom: 1px solid var(--gray-color);
+    padding: 5px 0;
+    margin-top: 1vh;
+    margin-bottom: 1.5vh;
+}
+
+.ignore_margin {
+    margin-bottom: 0;
+}
+
+/* Wrapper */
+.wrap {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    /*Header 높이만큼 설정하길 바람*/
+    margin-top: 7vh;
+    /* margin-bottom: 15vh; */
+    /* height: calc(100vh - 10vh - 15vh); */
+}
+
+/* Center Container */
+.form_container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3vh;
+    margin-bottom: 10vh;
+}
+
+.form_container > div {
+    margin: 0 5vw;
+}
+
+.form_setting {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Duration */
+.duration_div {
+    display: flex;
+    align-items: flex-start;
+    gap: 3vw;
+    margin-top: 1.7vh;
+    margin-bottom: 1vh;
+}
+.duration_div > label {
+    background-color: var(--main-brighter);
+    color: white;
+    width: 15vw;
+    height: 3vh;
+    text-align: center;
+    line-height: 3vh;
+    border-radius: 12px;
+}
+
+.duration_div > input[type="radio"]:checked + label {
+    color: white;
+    box-shadow: 2px 2px 1px black;
+}
+
+/* Field Toggle 관련 */
+.toggle_label {
+    cursor: pointer;
+    background-color: #ccc;
+    width: 12vw;
+    height: 3vh;
+    border-radius: 15px;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle_checkbox:checked + .toggle_label {
+    background-color: var(--main-color);
+}
+
+.toggle_label:before {
+    content: 'NO';
+    color: white;
+    transition: transform 0.3s;
+}
+
+.toggle_checkbox:checked + .toggle_label:before {
+    content: 'YES';
+}
+
+/* Submit btn */
+.submit_btn{
+    padding: 0.3em 0.5em;
+    margin-left: auto;
+    margin-top: 1.5vh;
+    border-radius: 5px;
+    background-color: var(--main-color);
+    color: white;
+  }
+
+.btn_container {
+    display: flex;
+}
