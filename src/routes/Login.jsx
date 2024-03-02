@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import naver from "../assets/naver.png"
 import kakao from "../assets/kakao.png"
 import google from "../assets/google.webp"
-import {login} from "../AuthAPI"
+import {login} from "../apis/AuthAPI"
 import { useState } from 'react'
 
 function Login () {
@@ -26,7 +26,7 @@ function Login () {
             // 토큰 값을 쿠키에 설정합니다.
             document.cookie = `access=${access};`;
             document.cookie = `refresh=${refresh};`;
-            // window.location.href = `/main`;
+            window.location.href = `/main`;
         }).catch((error) => {
             console.log(error);
         });
