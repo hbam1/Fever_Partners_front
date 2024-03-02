@@ -1,0 +1,96 @@
+:root {
+    --main-color: #db4455;
+    --white-color: #ffffff;
+    --gray-color: #A9A9A9;
+    --font-color: #6b6b6b;
+}
+.reportWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+/* header */
+.header {
+    display: flex;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 10vh;
+    align-items: center;
+    justify-content: space-between;
+    background-color: aqua;
+    background-color: var(--white-color);
+    color: var(--main-color);
+    margin-bottom: 10vh;
+}
+.header i, .header span{
+    margin: 0 1rem;
+    font-size: 6vw;
+}
+.hideArrowIcon {
+    color: var(--white-color);
+}
+.goBackLink {
+    text-decoration: none;
+}
+.goBackLink i {
+    color: var(--main-color);
+}
+/* reportContainer */
+.reportContainer {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 10vh;
+}
+
+/* reportCard */
+.reportCard {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.7rem;
+    width: 80vw;
+    border-radius: 10px;
+    margin-top: 3vh;
+    height: auto;
+    border: 1px solid var(--main-color);
+    transition: all 0.3s ease-in-out; 
+    padding: 2vh 5vw;
+}
+
+.reportCard:last-child{
+    margin-bottom: 3vh;
+}
+.reportCard h3,
+.reportCard a,
+.reportCard i {
+    text-decoration: none;
+    color: var(--font-color);
+    font-size: large;
+    font-weight: 500;
+    margin: 0;
+}
+
+.reportEllipsis {
+    line-height: 1.2; 
+}
+
+.reportSpan {
+    color: var(--main-color);
+    margin-right: 2vw;
+}
+
+.likeContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem
+}
+
+.likeContainer i {
+    color: var(--main-color);
+}
