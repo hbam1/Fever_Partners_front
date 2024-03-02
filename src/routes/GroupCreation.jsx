@@ -6,7 +6,7 @@ const GoalSelect = ({ defaultSetter, value, onChange, error }) => {
   const [options, setOptions] = useState([]);
 
   useEffect(() => {
-    AuthAPI.get('/api/goals/lists/')
+    AuthAPI.get('/api/rooms/goal_list/')
       .then(response => {
         setOptions(response.data);
         if (response.data.length > 0) {
@@ -149,8 +149,8 @@ const GroupCreationForm = () => {
         'deposit': deposit,
       })
       .then(response => {
-        if (response.ok) {
-          window.location.href = '/main';
+        if (response.status >= 200) {
+          window.location.href = window.location.origin + '/main';
         }
       })
       .catch(error => {
