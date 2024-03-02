@@ -29,7 +29,7 @@ function Main() {
                             <img src={logo} alt="" />
                         </span>
                         <span className={styles.header_icons}>
-                            <Link to={``}>
+                            <Link to={``} onClick={logout}>
                                 <i className="fa-solid fa-right-from-bracket"></i>
                             </Link>
                             <Link to={``}>
