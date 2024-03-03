@@ -1,3 +1,23 @@
+:root {
+    --main-color: #db4455;
+    --gray: #838383;
+    --red: #EB0000;
+    --green: #00AD26;
+    --white-color: #ffffff;
+    --gray2-color: #A9A9A9;
+    --font-color: #6b6b6b;
+}
+
+label {
+    color: var(--font-color);
+}
+
+input[type="checkbox"]:checked + label,
+input[type="radio"]:checked + label {
+    font-weight: bold;
+    color: var(--main-color);
+}
+
 .field_title {
     font-weight: bold;
     font-size: 2vh;
@@ -6,4 +26,108 @@
     padding: 5px 0;
     margin-top: 1vh;
     margin-bottom: 1.5vh;
+}
+
+.no_margin_bottom {
+    margin-bottom: 0;
+}
+
+.warning {
+    color: red;
+    font-size: 13px;
+    margin-top: 0.4vh;
+}
+
+.wrap {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 10vh;
+}
+
+.form_container {
+    display: flex;
+    width: 90vw;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.form_setting {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8vh;
+}
+
+/* Tag selection */
+
+#tag_container {
+    display: flex;
+    width: 100%;
+    height: auto;
+}
+
+#maintag_container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#subtag_container {
+    flex: 2;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 2vh;
+    margin-top: 1vh;
+    font-size: 20px;
+    font-weight: bold;
+    color: #8B8B8B;
+}
+
+#acttag_container {
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+}
+
+#acttag_container > label {
+    margin-right: 3vw;
+}
+
+/* Favor Offline */
+
+.radio_choice {
+    display: flex;
+}
+
+.radio_choice > label {
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 3vw;
+}
+
+/* Submit btn */
+.btn_container {
+    display: flex;
+    justify-content: flex-end;
+}
+.submit_btn {
+    border: none;
+    width: 25vw;
+    height: 4vh;
+    padding: 0.3em 0.5em;
+    border-radius: 5px;
+    margin-top: 2vh;
+    background-color: var(--main-color);
+    color: white;
+}
+
+.submit_btn:disabled {
+    background-color: rgba(219, 68, 85, 0.7);
 }
