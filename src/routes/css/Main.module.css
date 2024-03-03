@@ -99,6 +99,8 @@ body, html {
 /* footer */
 
 .footer {
+    position: fixed;
+    width: 100%;
     bottom: 0;
     height: 15vh;
     display: flex;

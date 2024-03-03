@@ -6,19 +6,19 @@ const Footer = () => {
         <div className={styles.footer}>
             <Link to={``} className={styles.footer_link}>
                 <div className={styles.footer_item}>
-                    <i class="fa-solid fa-user-group footer-icon"></i>
+                    <i className="fa-solid fa-user-group footer-icon"></i>
                     <span className={styles.footer_text}>내 그룹</span>
                 </div>
             </Link>
-            <Link to={``} className={styles.footer_link}>
+            <Link to={`/my_goals`} className={styles.footer_link}>
             <div className={styles.footer_item}>
-                <i class="fa-solid fa-bullseye footer-icon"></i>
+                <i className="fa-solid fa-bullseye footer-icon"></i>
                 <span className={styles.footer_text}>내 목표</span>
             </div>
             </Link>
-            <Link to={``} className={styles.footer_link}>
+            <Link to={`/achievement_reports_list`} className={styles.footer_link}>
             <div className={styles.footer_item}>
-                <i class="ri-file-list-3-line footer-icon"></i>
+                <i className="ri-file-list-3-line footer-icon"></i>
                 <span className={styles.footer_text}>달성보고</span>
             </div>
             </Link>
