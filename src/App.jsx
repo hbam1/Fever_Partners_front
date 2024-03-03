@@ -4,7 +4,9 @@ import Start from "./routes/Start";
 import Login from "./routes/Login";
 import Main from "./routes/Main";
 import GroupCreationForm from "./routes/GroupCreation";
-import Auth from "./routes/Auth";
+import GoalCreationForm from "./routes/GoalCreation";
+import AchievementReportList from "./routes/AchievementReportList";
+import UserDetail from "./routes/UserDetail";
 
 function App() {
   return (
@@ -14,7 +16,12 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Start />} />
         <Route path="/create_group" element={<GroupCreationForm />} />
-        <Route path="/auth" element={<Auth />} />
+        <Route path="/create_goal" element={<GoalCreationForm />} />
+        <Route
+          path="/achievement_reports_list"
+          element={<AchievementReportList />}
+        />
+        <Route path="/user_detail" element={<UserDetail />} />
       </Routes>
     </Router>
   );
