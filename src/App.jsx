@@ -6,6 +6,7 @@ import Main from "./routes/Main"
 import GroupCreationForm from "./routes/GroupCreation";
 import GoalCreationForm from "./routes/GoalCreation";
 import AchievementReportList from './routes/AchievementReportList';
+import GroupRecommendation from "./routes/GroupRecommendation";
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
         <Route path="/create_group" element={<GroupCreationForm />}/>
         <Route path="/create_goal" element={<GoalCreationForm />}/>
         <Route path="/achievement_reports_list" element={<AchievementReportList />} />
+        <Route path="/group_recommendation/:goalId" element={<GroupRecommendation />} />
       </Routes>
     </Router>
   )
