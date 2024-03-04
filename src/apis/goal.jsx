@@ -3,7 +3,7 @@ import { AuthAPI } from "../apis/AuthAPI";
 export const goalList = async () => {
     try {
         // AuthAPI.get()을 호출하고 응답을 기다림
-        const response = await AuthAPI.get(`/api/goals/user_list/`);
+        const response = await AuthAPI.get(`/api/goals/`);
         
         // 응답 데이터를 반환
         return response.data;
