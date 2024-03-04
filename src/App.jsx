@@ -12,6 +12,7 @@ import Signup from "./routes/Signup";
 import SignupEmail from "./routes/SignupEmail";
 import CreateNickname from "./routes/CreateNickname";
 import Alarm from "./routes/Alarm";
+import MyGroups from "./routes/MyGroups";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/signup_email" element={<SignupEmail />} />
         <Route path="/my_goals" element={<MyGoals />} />
+        <Route path="/my_groups" element={<MyGroups />} />
         <Route path="/main" element={<Main />} />
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Start />} />

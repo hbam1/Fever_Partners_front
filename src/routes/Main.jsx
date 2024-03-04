@@ -17,6 +17,7 @@ function Main() {
       showData(user);
     } catch (error) {
       console.error("Error getting user info:", error);
+      window.location.href = window.location.origin;
     }
   };
 
