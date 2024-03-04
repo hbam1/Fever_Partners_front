@@ -33,7 +33,6 @@ const UserDetail = () => {
           마이페이지
         </p>
         <img className={styles.profileImage} src={noImage} />
-        <img className={styles.profileImage} src={userData.profileImage} />
         <p className={`${styles.userDetailBox} ${styles.gray08em}`}>
           한줄소개: {userData.profile}
         </p>

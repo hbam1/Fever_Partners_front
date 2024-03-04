@@ -20,10 +20,22 @@ export const AuthAPI = axios.create({
   },
 });
 
+/** CreateNickname API */
+export const createNickname = async ({
+  nickname,
+  profile,
+  region,
+  region_detail,
+}) => {
+  const data = { nickname, profile, region, region_detail };
+  const response = await AuthAPI.patch(`/api/users/register/`, data);
+  return response.data;
+};
+
 /** SIGNUP API */
-export const signUp = async ({ email, password1, password2 }) => {
-  const data = { email, password1, password2 };
-  const response = await LoginAPI.post(`/api/register/`, data);
+export const signUp = async ({ email, password, password2 }) => {
+  const data = { email, password, password2 };
+  const response = await LoginAPI.post(`/api/users/register/`, data);
   return response.data;
 };
 
