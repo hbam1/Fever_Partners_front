@@ -58,8 +58,8 @@ function Main() {
                 </div>
                 <div className={styles.main_container_bottom_part}>
                     <div className={styles.main_container_bottom_part_content}>
-                        <Link to={``}>new goal</Link>
-                        <Link to={``}>new group</Link>
+                        <Link to={`/create_goal`}>new goal</Link>
+                        <Link to={`/create_group`}>new group</Link>
                     </div>
                 </div>
             </div>

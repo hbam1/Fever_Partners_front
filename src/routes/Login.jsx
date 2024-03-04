@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import naver from "../assets/naver.png"
 import kakao from "../assets/kakao.png"
 import google from "../assets/google.webp"
-import {login} from "../apis/AuthAPI"
+import { login } from "../apis/AuthAPI"
 import { useState } from 'react'
 
 function Login () {
