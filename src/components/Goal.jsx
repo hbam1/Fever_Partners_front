@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import styles from "../routes/css/MyGoals.module.css";
+import PropTypes from "prop-types";
 
 const Goal = ({ id, title, content, tags, activityTags, isInGroup, isCompleted}) => {
-    console.log(activityTags)
     return (
         <div className={styles.group_div}>
             <div className={styles.group_icon2}>
@@ -35,5 +35,15 @@ const Goal = ({ id, title, content, tags, activityTags, isInGroup, isCompleted})
         </div>
     );
 }
+
+Goal.propTypes = {
+    id: PropTypes.number.isRequired,
+    content: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    isInGroup: PropTypes.bool.isRequired,
+    isCompleted: PropTypes.bool.isRequired,
+    tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+    activityTags: PropTypes.arrayOf(PropTypes.string).isRequired,
+  };
 
 export default Goal;
