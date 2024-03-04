@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import styles from "./css/UserDetail.module.css";
 import { AuthAPI } from "../apis/AuthAPI";
 import noImage from "../assets/noImage.png";
@@ -34,8 +33,18 @@ const UserDetail = () => {
           마이페이지
         </p>
         <img className={styles.profileImage} src={noImage} />
+        <img className={styles.profileImage} src={userData.profileImage} />
+        <p className={`${styles.userDetailBox} ${styles.gray08em}`}>
+          한줄소개: {userData.profile}
+        </p>
         <p className={`${styles.userDetailBox} ${styles.gray08em}`}>
           이메일: {userData.email}
+        </p>
+        <p className={`${styles.userDetailBox} ${styles.gray08em}`}>
+          거주 지역: {userData.region}
+        </p>
+        <p className={`${styles.userDetailBox} ${styles.gray08em}`}>
+          상세 지역: {userData.region_detail}
         </p>
         <p className={`${styles.userDetailBox} ${styles.gray08em}`}>
           보유 코인: {userData.coin}🪙
