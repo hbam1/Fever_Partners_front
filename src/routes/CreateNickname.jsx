@@ -24,6 +24,7 @@ const CreateNickname = () => {
             window.location.href = `/main`;
         }).catch((error) => {
             console.log(error);
+            window.location.href = window.location.origin;
         });
     }
 

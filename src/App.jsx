@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState } from "react";
 import Start from "./routes/Start";
 import Login from "./routes/Login";
 import Main from "./routes/Main";
@@ -14,7 +13,7 @@ import SignupEmail from "./routes/SignupEmail";
 import CreateNickname from "./routes/CreateNickname";
 import Alarm from "./routes/Alarm";
 import GroupActivityBase from './routes/GroupActivityBase';
-
+import MyGroups from "./routes/MyGroups";
 
 function App() {
   return (
@@ -24,6 +23,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/signup_email" element={<SignupEmail />} />
         <Route path="/my_goals" element={<MyGoals />} />
+        <Route path="/my_groups" element={<MyGroups />} />
         <Route path="/main" element={<Main />} />
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Start />} />
@@ -32,7 +32,7 @@ function App() {
         <Route path="/achievement_report_detail/:id" element={<AchievementReportDetail />} />
         <Route path="/create_goal" element={<GoalCreationForm />}/>
         id 추가 필요
-        <Route path="/group_activity_base" element={<GroupActivityBase />}/>  
+        <Route path="/group_activity" element={<GroupActivityBase />}/>  
         <Route path="/user_detail" element={<UserDetail />} />
         <Route path="/alarm" element={<Alarm />} />
       </Routes>

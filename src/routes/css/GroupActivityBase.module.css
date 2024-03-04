@@ -16,49 +16,69 @@ body, html {
   font-style: normal;
 }
 
-.page_back {
-  cursor: pointer;
-}
-
-#group-activat-box {
+#groupActivatBox {
   width: 100vw;
 }
-
-#group-introbox {
+#groupIntrobox {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
   background-color: var(--main-color);
   color: white;
   height: 35vh;
 }
 
-#group-intro-text {
+/* header */
+.goalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 3vh;
+  margin: 0 4vh;
+  margin-top: 2vh;
+}
+.goalHeaderW {
+  width: 90vw;
+}
+.goalHeader i {
+  color: white;
+  font-size: small;
+}
+
+#groupIntroText {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1em;
+  margin-top: 1vh;
 }
-
-.group-title {
+.whiteTitle {
   font-weight: bold;
   font-size: 3em;
   color: white;
 }
+.groupDetail {
+  margin: 0 5vw;
+  text-align: center; 
+  line-height: 1.5;
+}
+#groupIntroText .whiteTitle{
+  font-weight: normal;
+  font-size: 2.5em;
+}
 
-.group-tag-list {
+.groupIntroTag {
   display: flex;
   gap: 1em;
 }
 
-#group-admin-or-withdraw {
+#groupAdminOrWithdraw {
   display: flex;
   gap: 1em;
-  margin-bottom: 3vh;
+  margin-top: 3vh;
 }
 
-.group-action-btn {
+.groupBtn {
   color: var(--main-color);
   background-color: white;
   font-size: 0.8em;
@@ -68,7 +88,7 @@ body, html {
   font-weight: bold;
 }
 
-#group-select-activity-list {
+#groupSelectActivityList {
   height: 5vh;
   display: flex;
   justify-content: space-around;
@@ -77,16 +97,19 @@ body, html {
   font-weight: bold;
 }
 
-.group-tab-link {
+#groupSelectActivityList a {
+  color: var(--font-color);
+}
+#groupSelectActivityList > a,
+#groupSelectActivityList > a:visited {
   text-decoration: none;
   font-weight: normal;
 }
 
-.selected-group-tab {
+#groupSelectActivityList a.selectedGroupTab {
   height: 100%;
   display: flex;
   align-items: center;
-  font-weight: bolder;
   border-bottom: 2px solid var(--main-color);
   color: var(--main-color);
 }
@@ -95,12 +118,49 @@ body, html {
   display: flex;
   align-items: center;
   border-bottom: 2px solid var(--main-color);
-  color: rgb(219, 68, 85) !important;
+  color: var(--main-color)
 }
 
-#group-activity-content {
+#groupActivityContent {
   height: 41vh;
   padding: 2vh;
 }
 
-/* 그 외 CSS는 생략 */
+/* footer */
+.footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  height: 15vh;
+  display: flex;
+  align-items: center;
+  background-color: #f2f2f2;
+  box-sizing: border-box;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.footer_item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 110px;
+}
+.footer_item i {
+  font-size: 30px;
+  color: #db4455;
+  margin-bottom: 10px;
+}
+
+.footer_text {
+  color: #db4455;
+  font-size: 16px;
+  font-style: italic;
+  text-decoration: none;
+}
+
+.footer_link {
+  text-decoration: none;
+  display: flex;
+}

@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import styles from "./css/GroupActivityBase.module.css";
 
+// 더미데이터 사용, 나중에 url 수정
 const GroupActivityBase = () => {
     const room = {
         id: 1,
@@ -14,27 +15,44 @@ const GroupActivityBase = () => {
         penalty_value: 1000,
         deposit: 5000
     };
+    useEffect(() => {
+        initializeAct();
+    }, []);
+    function initializeAct() {
+        var room_id = '{{ room_id }}';
+        var previousPage = document.referrer;
+        
+        if (previousPage.includes(window.location.origin + '/group_activity/auth/') || previousPage.includes(window.location.origin + '/group_activity/authentication/')) {
+            document.addEventListener('DOMContentLoaded', function () {
+                authActivate(room_id)
+            });
+        } else {
+            document.addEventListener('DOMContentLoaded', function () {
+                defaultActivate(room_id);
+            });
+        }
+    }
 
     return (
-        <div id="group-activat-box">
-            <div id="group-introbox">
-                <div className='goal-header goal-header-w'>
-                    <div className={styles.page_back_header}>
-                        <Link to='group_management:group_list' className="page_back">
+        <div id={styles.groupActivatBox}>
+            <div id={styles.groupIntrobox}>
+                <div className={`${styles.goalHeader} ${styles.goalHeaderW}`}>
+                    <div className={styles.pageBackHeader}>
+                        <Link to='' className={styles.pageBack}>
                             <i className="fa-solid fa-chevron-left"></i>
                         </Link>
                     </div>
                 </div>
-                <div id="group-intro-text">
-                    <p className="white-title">{room.title}</p>
-                    <div className="group-intro-tag">
+                <div id={styles.groupIntroText}>
+                    <p className={styles.whiteTitle}>{room.title}</p>
+                    <div className={styles.groupIntroTag}>
                         {
                             room
                                 .tags
                                 .map((tag, index) => (<p key={index}>#{tag}</p>))
                         }
                     </div>
-                    <p>{room.detail}</p>
+                    <p className={styles.groupDetail}>{room.detail}</p>
                     <p>
                         인증 {
                             room.cert_required
@@ -42,7 +60,7 @@ const GroupActivityBase = () => {
                                 : '선택'
                         }
                         {
-                            room.cert_required && (<> &nbsp;
+                            room.cert_required && <> & nbsp;
                             &nbsp;
                             벌금 {
                                 room.penalty_value
@@ -50,58 +68,42 @@ const GroupActivityBase = () => {
                             🪙 보증금 {
                                 room.deposit
                         }
-                        🪙 < />
-                )}
+                        🪙 < />}
                     </p>
                 </div>
-                <div id="group-admin-or-withdraw">
-                    <a className="group-btn" href={`/group_management/${room.id}`}>그룹 관리</a>
-                    <a className="group-btn" href={`/withdrawal/${room.id}`}>탈퇴하기</a>
+                <div id={styles.groupAdminOrWithdraw}>
+                    <a className={styles.groupBtn} href={`/group_management/${room.id}`}>그룹 관리</a>
+                    <a className={styles.groupBtn} href={`/withdrawal/${room.id}`}>탈퇴하기</a>
                 </div>
             </div>
-            <div id="group-select-activity-list">
-                <a href={`/member_list/${room.id}`} className="selected-group-tab">멤버</a>
-                <a href={`/activate/${room.id}`} id="auth-space">인증 공간</a>
-                <a href={`/show_log/${room.id}`}>활동 현황</a>
-                <a href={`/free_board/${room.id}`}>게시판</a>
+            <div id={styles.groupSelectActivityList}>
+                <a href={`group_activity/member_list/${room.id}`} className={styles.selectedGroupTab}>멤버</a>
+                <a href={`group_activity/activate/${room.id}`} id={styles.authSpace}>인증 공간</a>
+                <a href={`group_activity/show_log/${room.id}`}>활동 현황</a>
+                <a href={`group_activity/free_board/${room.id}`}>게시판</a>
             </div>
-            <div id="group-activity-content">
+            <div id={styles.groupActivityContent}>
                 {/* 이 곳에 컨텐츠 렌더링 */}
             </div>
-            <div className="footer">
-                <a
-                    href="/group_management/group_list"
-                    className="footer-link"
-                    style={{
-                        display: 'flex'
-                    }}>
-                    <div className="footer-item">
+            <div className={styles.footer}>
+                <Link to={``} className={styles.footer_link}>
+                    <div className={styles.footer_item}>
                         <i className="fa-solid fa-user-group footer-icon"></i>
-                        <span className="footer-text">내 그룹</span>
+                        <span className={styles.footer_text}>내 그룹</span>
                     </div>
-                </a>
-                <a
-                    href="/goal_management/goal_list"
-                    className="footer-link"
-                    style={{
-                        display: 'flex'
-                    }}>
-                    <div className="footer-item">
+                </Link>
+                <Link to={``} className={styles.footer_link}>
+                    <div className={styles.footer_item}>
                         <i className="fa-solid fa-bullseye footer-icon"></i>
-                        <span className="footer-text">내 목표</span>
+                        <span className={styles.footer_text}>내 목표</span>
                     </div>
-                </a>
-                <a
-                    href="/goal_management/achievement_report_list"
-                    className="footer-link"
-                    style={{
-                        display: 'flex'
-                    }}>
-                    <div className="footer-item">
+                </Link>
+                <Link to={`/achievement_report_list`} className={styles.footer_link}>
+                    <div className={styles.footer_item}>
                         <i className="ri-file-list-3-line footer-icon"></i>
-                        <span className="footer-text">달성보고</span>
+                        <span className={styles.footer_text}>달성보고</span>
                     </div>
-                </a>
+                </Link>
             </div>
         </div>
     );
