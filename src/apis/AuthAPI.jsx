@@ -21,8 +21,8 @@ export const AuthAPI = axios.create({
 });
 
 /** SIGNUP API */
-export const signUp = async ({ email, password1, password2 }) => {
-    const data = { email, password1, password2 };
+export const signUp = async ({ email, password, password2 }) => {
+    const data = { email, password, password2 };
     const response = await LoginAPI.post(`/api/register/`, data);
     return response.data;
 }

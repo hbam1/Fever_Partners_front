@@ -1,4 +1,3 @@
-import axios from "axios";
 import {AuthAPI} from "./AuthAPI"
 
 export const logout = () => {

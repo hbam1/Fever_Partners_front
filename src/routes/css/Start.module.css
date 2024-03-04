@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
 :root {
-    --red: #db4455;
+    --main: #db4455;
     --white: #ffffff;
     --gray: #8b8b8b;
     --height: 100vh;
@@ -23,7 +23,7 @@ body, html {
     flex-direction: column;
     align-items: center;
     height: var(--height);
-    background-color: var(--red);
+    background-color: var(--main);
     justify-content: space-evenly;
 }
 
@@ -44,7 +44,7 @@ body, html {
 
 .start_btn a {
     font-size: 3rem;
-    color: var(--red);
+    color: var(--main);
     text-decoration: none; /* 밑줄을 없애는 속성 */
     font-weight: bold;
     padding: 0.5rem;
