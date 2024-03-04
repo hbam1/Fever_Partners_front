@@ -4,13 +4,29 @@
   --gray-color: #a9a9a9;
   --font-color: #6b6b6b;
 }
-.reportWrap {
+
+/* 색상/컬러 */
+.gray08em {
+  color: var(--gray-color);
+  font-size: 0.8em;
+}
+
+.mainColorText {
+  color: var(--main-color);
+}
+
+.boldText {
+  font-weight: 500;
+}
+
+.userDetailWrap {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  height: 100vh;
 }
-/* header */
+
+/* 헤더(공용) */
 .header {
   display: flex;
   position: fixed;
@@ -38,60 +54,34 @@
 .goBackLink i {
   color: var(--main-color);
 }
-/* reportContainer */
-.reportContainer {
-  flex: 1;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  margin-top: 10vh;
-}
 
-/* reportCard */
-.reportCard {
+/* user detail */
+.userDetailMain {
   display: flex;
-  justify-content: center;
   flex-direction: column;
   gap: 0.7rem;
   width: 80vw;
-  border-radius: 10px;
   margin-top: 3vh;
   height: auto;
-  border: 1px solid var(--main-color);
   transition: all 0.3s ease-in-out;
   padding: 2vh 5vw;
+  position: relative;
+  top: 10vh;
 }
 
-.reportCard:last-child {
-  margin-bottom: 3vh;
-}
-.reportCard h3,
-.reportCard a,
-.reportCard i {
-  text-decoration: none;
-  color: var(--font-color);
-  font-size: large;
-  font-weight: 500;
-  margin: 0;
+.profileImage {
+  height: 5em;
+  width: 5em;
+  border-radius: 50%;
+  margin: 1em;
 }
 
-.reportEllipsis {
-  line-height: 1.2;
-}
-
-.reportSpan {
-  color: var(--main-color);
-  margin-right: 2vw;
-}
-
-.likeContainer {
+.userDetailBox {
+  border: 1px solid white;
+  border-radius: 7px;
+  height: 5vh;
   display: flex;
   align-items: center;
-  gap: 0.3rem;
-}
-
-.likeContainer i {
-  color: var(--main-color);
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+  padding-left: 5vw;
 }
