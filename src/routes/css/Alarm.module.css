@@ -1,0 +1,28 @@
+/* 헤더(공용) */
+.header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 10vh;
+  align-items: center;
+  justify-content: space-between;
+  background-color: aqua;
+  background-color: var(--white-color);
+  color: var(--main-color);
+  margin-bottom: 10vh;
+}
+.header i,
+.header span {
+  margin: 0 1rem;
+  font-size: 6vw;
+}
+.hideArrowIcon {
+  color: var(--white-color);
+}
+.goBackLink {
+  text-decoration: none;
+}
+.goBackLink i {
+  color: var(--main-color);
+}
