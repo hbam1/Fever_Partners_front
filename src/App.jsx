@@ -11,6 +11,7 @@ import UserDetail from "./routes/UserDetail";
 import Signup from "./routes/Signup";
 import SignupEmail from "./routes/SignupEmail";
 import CreateNickname from "./routes/CreateNickname";
+import Alarm from "./routes/Alarm";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           element={<AchievementReportList />}
         />
         <Route path="/user_detail" element={<UserDetail />} />
+        <Route path="/alarm" element={<Alarm />} />
       </Routes>
     </Router>
   );

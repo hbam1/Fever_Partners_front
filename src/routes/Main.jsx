@@ -32,7 +32,7 @@ function Main() {
               <Link to={``} onClick={logout}>
                 <i className="fa-solid fa-right-from-bracket"></i>
               </Link>
-              <Link to={``}>
+              <Link to={`/alarm`}>
                 <i className="fa-solid fa-bell"></i>
               </Link>
               <Link to={`/user_detail`}>
