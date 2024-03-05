@@ -4,7 +4,7 @@ function Auth() {
   const [auths, setAuths] = useState([]);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/activities/list/2/")
+    fetch("http://127.0.0.1:8000/api/rooms/1/activities/list/")
       .then((response) => response.json())
       .then((data) => setAuths(data));
   }, []);
