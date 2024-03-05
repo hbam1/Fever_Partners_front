@@ -26,3 +26,48 @@
 .goBackLink i {
   color: var(--main-color);
 }
+
+/* 공용 */
+.mainColorText {
+  color: var(--main-color);
+}
+
+/* 알림창 */
+.alarmListMain {
+  height: 90vh;
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  position: relative;
+  top: 10vh;
+}
+
+.alarmListMain > ul {
+  padding: 0;
+  margin-top: 5vh;
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+  overflow-y: scroll;
+}
+
+.alarmListMain > ul::-webkit-scrollbar {
+  display: none;
+}
+
+.alarmListMain > ul > li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.requestDetailBtn {
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  background-color: var(--main-color);
+  border-radius: 15px;
+  font-size: 0.8em;
+  padding: 0.5em 1.5em;
+}

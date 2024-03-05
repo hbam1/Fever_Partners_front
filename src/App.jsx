@@ -13,6 +13,7 @@ import SignupEmail from "./routes/SignupEmail";
 import CreateNickname from "./routes/CreateNickname";
 import Alarm from "./routes/Alarm";
 import MyGroups from "./routes/MyGroups";
+import Auth from "./routes/Auth";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         />
         <Route path="/user_detail" element={<UserDetail />} />
         <Route path="/alarm" element={<Alarm />} />
+        <Route path="/auth" element={<Auth />} />
       </Routes>
     </Router>
   );

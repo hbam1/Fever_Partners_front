@@ -27,13 +27,20 @@ const Alarm = () => {
           <i className="ri-arrow-left-s-line"></i>
         </a>
       </div>
-      <div>
-        {alarms.map((alarm) => (
-          <div key={alarm.id}>
-            <div>{alarm.alarm_from}</div>
-            <div>{alarm.alarm_to}</div>
-          </div>
-        ))}
+      <div className={styles.alarmListMain}>
+        <ul>
+          {alarms.map((alarm) => (
+            <li key={alarm.id}>
+              <p>
+                <span className={styles.mainColorText}>{alarm.alarm_from}</span>{" "}
+                님의 요청
+              </p>
+              <a href="" className={styles.requestDetailBtn}>
+                상세보기
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
