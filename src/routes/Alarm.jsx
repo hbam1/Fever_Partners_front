@@ -3,6 +3,19 @@ import styles from "./css/Alarm.module.css";
 import { AuthAPI } from "../apis/AuthAPI";
 
 const Alarm = () => {
+  const [alarms, setAlarms] = useState([]);
+
+  useEffect(() => {
+    AuthAPI.get("/api/alarms/list/")
+      .then((response) => {
+        setAlarms(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
   return (
     <div className={styles.userDetailWrap}>
       <div className={styles.header}>
@@ -13,6 +26,14 @@ const Alarm = () => {
         <a className={styles.hideArrowIcon} href="">
           <i className="ri-arrow-left-s-line"></i>
         </a>
+      </div>
+      <div>
+        {alarms.map((alarm) => (
+          <div key={alarm.id}>
+            <div>{alarm.alarm_from}</div>
+            <div>{alarm.alarm_to}</div>
+          </div>
+        ))}
       </div>
     </div>
   );
