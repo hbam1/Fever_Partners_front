@@ -13,12 +13,16 @@ const MyGoals = () => {
     }, [])
 
     const getGoalList = async () => {
-        const list = await goalList();
-        setGoals(list);
+        try {
+            const list = await goalList();
+            setGoals(list);
+        } catch (error) {
+            console.error("Error getting goals info:", error);
+            window.location.href = window.location.origin;
+        }
+        
     }
-    userGoals.map((goal) => {
-        console.log(goal);
-    })
+
     return (
         <div>
             <header className={styles.header}>
