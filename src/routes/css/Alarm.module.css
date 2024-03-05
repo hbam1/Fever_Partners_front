@@ -32,8 +32,15 @@
   color: var(--main-color);
 }
 
+.contentWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
 /* 알림창 */
-.alarmListMain {
+.alarmContentMain {
   height: 90vh;
   width: 90vw;
   display: flex;
@@ -43,7 +50,7 @@
   top: 10vh;
 }
 
-.alarmListMain > ul {
+.alarmContentMain > ul {
   padding: 0;
   margin-top: 5vh;
   display: flex;
@@ -52,11 +59,11 @@
   overflow-y: scroll;
 }
 
-.alarmListMain > ul::-webkit-scrollbar {
+.alarmContentMain > ul::-webkit-scrollbar {
   display: none;
 }
 
-.alarmListMain > ul > li {
+.alarmContentMain > ul > li {
   display: flex;
   justify-content: space-between;
   align-items: center;
