@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import styles from "./css/AchievementReport.module.css";
 import {Link} from 'react-router-dom';
-import axios from 'axios';
 import {AuthAPI} from "../apis/AuthAPI"
 
 const AchievementReportList = () => {

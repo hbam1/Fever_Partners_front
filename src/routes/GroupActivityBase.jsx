@@ -1,6 +1,10 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import styles from "./css/GroupActivityBase.module.css";
+import GroupActivityTab from '../apis/GroupActivityTab';
+import MemberListComponent from './MemberListComponent';
+import AuthenticationSpaceComponent from './AuthenticationSpaceComponent';
+import ShowLogComponent from './ShowLogComponent';
 
 // 더미데이터 사용, 나중에 url 수정
 const GroupActivityBase = () => {
@@ -15,23 +19,33 @@ const GroupActivityBase = () => {
         penalty_value: 1000,
         deposit: 5000
     };
+    const [selectedTab, setSelectedTab] = useState('');
+
+    const selectComponent = (tab) => {
+        switch (tab) {
+            case 'member':
+                return <MemberListComponent />;
+            case 'activate':
+                return <AuthenticationSpaceComponent />;
+            case 'show_log':
+                return <ShowLogComponent />;
+            // case 'free_board':
+            //     return <FreeBoardComponent />;
+            default:
+                return null;
+        }
+    };
+
     useEffect(() => {
-        initializeAct();
-    }, []);
-    function initializeAct() {
         var room_id = '{{ room_id }}';
         var previousPage = document.referrer;
         
         if (previousPage.includes(window.location.origin + '/group_activity/auth/') || previousPage.includes(window.location.origin + '/group_activity/authentication/')) {
-            document.addEventListener('DOMContentLoaded', function () {
-                authActivate(room_id)
-            });
+            setSelectedTab('activate');
         } else {
-            document.addEventListener('DOMContentLoaded', function () {
-                defaultActivate(room_id);
-            });
+            setSelectedTab('member');
         }
-    }
+    }, []);
 
     return (
         <div id={styles.groupActivatBox}>
@@ -60,7 +74,7 @@ const GroupActivityBase = () => {
                                 : '선택'
                         }
                         {
-                            room.cert_required && <> & nbsp;
+                            room.cert_required && <> 
                             &nbsp;
                             벌금 {
                                 room.penalty_value
@@ -77,13 +91,13 @@ const GroupActivityBase = () => {
                 </div>
             </div>
             <div id={styles.groupSelectActivityList}>
-                <a href={`group_activity/member_list/${room.id}`} className={styles.selectedGroupTab}>멤버</a>
-                <a href={`group_activity/activate/${room.id}`} id={styles.authSpace}>인증 공간</a>
-                <a href={`group_activity/show_log/${room.id}`}>활동 현황</a>
-                <a href={`group_activity/free_board/${room.id}`}>게시판</a>
+                <a href="#" className={selectedTab === 'member' ? styles.selectedGroupTab : ''} onClick={() => setSelectedTab('member')}>멤버</a>
+                <a href="#" id={styles.authSpace} className={selectedTab === 'activate' ? styles.selectedGroupTab : ''} onClick={() => setSelectedTab('activate')}>인증 공간</a>
+                <a href="#" className={selectedTab === 'show_log' ? styles.selectedGroupTab : ''} onClick={() => setSelectedTab('show_log')}>활동 현황</a>
+                <a href="#" className={selectedTab === 'free_board' ? styles.selectedGroupTab : ''} onClick={() => setSelectedTab('free_board')}>게시판</a>
             </div>
             <div id={styles.groupActivityContent}>
-                {/* 이 곳에 컨텐츠 렌더링 */}
+                {selectComponent(selectedTab)}
             </div>
             <div className={styles.footer}>
                 <Link to={``} className={styles.footer_link}>
