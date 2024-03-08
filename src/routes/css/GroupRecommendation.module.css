@@ -23,7 +23,7 @@
 .recom_container {
     width: 80vw;
     border-radius: 10px;
-    margin-top: 3vh;
+    margin-bottom: 3vh;
     height: auto;
     border: 1px solid var(--main-color);
     transition: all 0.3s ease-in-out; 
@@ -33,10 +33,6 @@
 .basis_goal {
     margin: 0;
     margin-bottom: 1vh;
-}
-
-.recom_container:last-child {
-    margin-bottom: 3vh;
 }
 
 .recom_container:hover {
@@ -54,11 +50,16 @@
 
 .wrap p {
     margin: 0;
-    margin-top: 1vh;
+    margin-top: 1.5vh;
     color: var(--font-color);
 }
 
-.warp span {
+.field_container {
+    display: flex;
+    gap: 0.9vw;
+}
+
+.field_container > span:first-of-type {
     color: var(--main-color);
 }
 
@@ -76,6 +77,10 @@
     border-radius: 4px;
 }
 
+.register_btn:disabled {
+    background-color: rgba(217, 78, 94, 0.5);
+}
+
 .title_container  {
     display: flex;
     align-items: center;
@@ -91,4 +96,66 @@
     margin-top: 3vh;
     margin-bottom: 1vh;
     font-weight: 600;
+}
+
+.member-recom {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0;
+    margin-bottom: 3vh;
+}
+
+.recom_object_container img:nth-child(1) {
+    width: 100px;
+    height: 100px;
+    margin-right: 30px;
+}
+
+.penalty_detail_title {
+    color: var(--main-color);
+}
+
+/* fever mark */
+
+.fever_gif {
+    width: 20px;
+    height: auto;
+    line-height: 10px;
+}
+
+.profile_image {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 15px;
+}
+
+.horizontal_div {
+    display: flex;
+    gap: 10px;
+}
+
+.join_button {
+    background-color: var(--main-color); 
+    border: none;
+    color: white;
+    padding: 7px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: small;
+    margin-top: 1vh;
+    cursor: pointer;
+    border-radius: 4px;
+    height: 3vh;
+}
+
+.join_button:disabled {
+    background-color: rgba(217, 78, 94, 0.5);
+}
+
+.larger_font {
+    font-size: larger;
 }
