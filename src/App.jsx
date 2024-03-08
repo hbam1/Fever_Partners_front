@@ -1,19 +1,18 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState } from "react";
 import Start from "./routes/Start";
 import Login from "./routes/Login";
 import Main from "./routes/Main";
 import MyGoals from "./routes/MyGoals";
 import GroupCreationForm from "./routes/GroupCreation";
 import GoalCreationForm from "./routes/GoalCreation";
-import AchievementReportList from './routes/AchievementReportList';
-import GroupRecommendation from "./routes/GroupRecommendation";
-import MemberRecommendation from "./routes/MemberRecommendation";
+import AchievementReportList from "./routes/AchievementReportList";
 import UserDetail from "./routes/UserDetail";
 import Signup from "./routes/Signup";
 import SignupEmail from "./routes/SignupEmail";
 import CreateNickname from "./routes/CreateNickname";
 import Alarm from "./routes/Alarm";
+import GroupActivityBase from './routes/GroupActivityBase';
+import GroupManagement from './routes/GroupManagement';
 import MyGroups from "./routes/MyGroups";
 
 function App() {
@@ -28,11 +27,12 @@ function App() {
         <Route path="/main" element={<Main />} />
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Start />} />
-        <Route path="/create_group" element={<GroupCreationForm />}/>
-        <Route path="/create_goal" element={<GoalCreationForm />}/>
-        <Route path="/achievement_reports_list" element={<AchievementReportList />} />
-        <Route path="/group_recommendation/:goalId" element={<GroupRecommendation />} />
-        <Route path="/member_recommendation/:roomId" element={<MemberRecommendation />} />
+        <Route path="/create_group" element={<GroupCreationForm />} />
+        <Route path="/create_goal" element={<GoalCreationForm />} />
+        <Route
+          path="/achievement_reports_list"
+          element={<AchievementReportList />}
+        />
         <Route path="/user_detail" element={<UserDetail />} />
         <Route path="/alarm" element={<Alarm />} />
       </Routes>
