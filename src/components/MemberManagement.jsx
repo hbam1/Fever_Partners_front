@@ -1,13 +1,13 @@
 import React from 'react';
 import {useState} from 'react';
 
-function AchievementReportPage({}) {
+function MemberManagement({}) {
 
     return (
         <div>
-            그룹관리
+            멤버 관리
         </div>
     );
 }
 
-export default AchievementReportPage;
+export default MemberManagement;

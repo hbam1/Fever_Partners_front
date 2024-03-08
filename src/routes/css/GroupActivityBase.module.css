@@ -45,6 +45,38 @@ body, html {
   font-size: small;
 }
 
+/* 그룹관리페이지 header */
+.header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 10vh;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--main-color);
+  color: var(--main-color);
+  margin-bottom: 10vh;
+}
+.header i,
+.header span {
+  margin: 0 1rem;
+  font-size: 6vw;
+}
+.hideArrowIcon {
+  color: var(--white-color);
+}
+.goBackLink {
+  text-decoration: none;
+}
+.goBackLink i {
+  color: var(--main-color);
+}
+.header > a {
+  text-decoration: none;
+  color: var(--white-color);
+}
+
 #groupIntroText {
   display: flex;
   flex-direction: column;

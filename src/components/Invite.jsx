@@ -1,13 +1,13 @@
 import React from 'react';
 import {useState} from 'react';
 
-function AchievementReportPage({}) {
+function Invite({}) {
 
     return (
         <div>
-            그룹관리
+            초대
         </div>
     );
 }
 
-export default AchievementReportPage;
+export default Invite;
