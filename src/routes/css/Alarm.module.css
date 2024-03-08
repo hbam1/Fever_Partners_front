@@ -39,6 +39,11 @@
   height: 100vh;
 }
 
+.fs15emBold {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
 /* 알림창 */
 .alarmContentMain {
   height: 90vh;

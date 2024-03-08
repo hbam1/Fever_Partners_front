@@ -10,7 +10,6 @@ const Alarm = () => {
     AuthAPI.get("/api/alarms/list/")
       .then((response) => {
         setAlarms(response.data);
-        console.log(response.data);
       })
       .catch((error) => {
         console.error(error);
@@ -31,12 +30,18 @@ const Alarm = () => {
       <div className={styles.alarmContentMain}>
         <ul>
           {alarms.map((alarm) => (
+            //alarm 3개 구분하는 로직 구현해야 함
             <li key={alarm.id}>
               <p>
-                <span className={styles.mainColorText}>{alarm.alarm_from}</span>{" "}
+                <span className={styles.mainColorText}>
+                  {alarm.alarm_from.nickname}
+                </span>{" "}
                 님의 요청
               </p>
-              <Link to={`/alarm_detail`} className={styles.requestDetailBtn}>
+              <Link
+                to={`/alarm_detail/${alarm.id}/`}
+                className={styles.requestDetailBtn}
+              >
                 상세보기
               </Link>
             </li>

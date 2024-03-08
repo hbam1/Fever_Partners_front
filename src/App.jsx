@@ -36,7 +36,7 @@ function App() {
         />
         <Route path="/user_detail" element={<UserDetail />} />
         <Route path="/alarm" element={<Alarm />} />
-        <Route path="/alarm_detail" element={<AlarmDetail />} />
+        <Route path="/alarm_detail/:alarm_id/" element={<AlarmDetail />} />
         <Route path="/auth" element={<Auth />} />
       </Routes>
     </Router>
