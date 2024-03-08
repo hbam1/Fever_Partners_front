@@ -5,6 +5,8 @@ import Main from "./routes/Main";
 import MyGoals from "./routes/MyGoals";
 import GroupCreationForm from "./routes/GroupCreation";
 import GoalCreationForm from "./routes/GoalCreation";
+import GroupRecommendation from "./routes/GroupRecommendation";
+import MemberRecommendation from "./routes/MemberRecommendation";
 import AchievementReportList from './routes/AchievementReportList';
 import AchievementReportForm from './routes/AchievementReportForm';
 import AchievementReportDetail from './routes/AchievementReportDetail';
@@ -30,12 +32,14 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Start />} />
         <Route path="/create_group" element={<GroupCreationForm />}/>
+        <Route path="/create_goal" element={<GoalCreationForm />}/>
+        <Route path="/group_recommendation/:goalId" element={<GroupRecommendation />}/>
+        <Route path="/member_recommendation/:roomId" element={<MemberRecommendation />}/>
         <Route path="/achievement_report_list" element={<AchievementReportList />} />
         <Route path="/achievement_report_detail/:id" element={<AchievementReportDetail />} />
         <Route path="/achievement_report_form/:id" element={<AchievementReportForm />} />
-        <Route path="/create_goal" element={<GoalCreationForm />}/>
-        <Route path="/group_activity/:id" element={<GroupActivityBase />}/>  
-        <Route path="/group_management/:id" element={<GroupManagement />}/>
+        <Route path="/group_activity/:roomId" element={<GroupActivityBase />}/>  
+        <Route path="/group_management/:roomId" element={<GroupManagement />}/>
         <Route path="/user_detail" element={<UserDetail />} />
         <Route path="/alarm" element={<Alarm />} />
       </Routes>

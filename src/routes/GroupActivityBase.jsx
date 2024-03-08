@@ -1,50 +1,47 @@
-import React, {useEffect, useState} from 'react';
-import {Link} from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import styles from "./css/GroupActivityBase.module.css";
 import MemberListComponent from '../components/MemberListComponent';
 import AuthenticationSpaceComponent from '../components/AuthenticationSpaceComponent';
 import ShowLogComponent from '../components/ShowLogComponent';
+import { useParams } from 'react-router-dom';
+import {AuthAPI} from "../apis/AuthAPI"
 
-// 더미데이터 사용, 나중에 url 수정
 const GroupActivityBase = () => {
-    const room = {
-        id: 1,
-        title: "그룹 제목",
-        tags: [
-            "태그1", "태그2", "태그3"
-        ],
-        detail: "그룹 상세 설명입니다. 이곳에는 그룹에 대한 자세한 설명이 들어갑니다.",
-        cert_required: true,
-        penalty_value: 1000,
-        deposit: 5000
-    };
+    const { roomId } = useParams();
+    const [room, setRoom] = useState('');
     const [selectedTab, setSelectedTab] = useState('');
 
-    const selectComponent = (tab) => {
-        switch (tab) {
-            case 'member':
-                return <MemberListComponent />;
-            case 'activate':
-                return <AuthenticationSpaceComponent />;
-            case 'show_log':
-                return <ShowLogComponent />;
-            // case 'free_board':
-            //     return <FreeBoardComponent />;
-            default:
-                return null;
-        }
-    };
-
     useEffect(() => {
-        var room_id = '{{ room_id }}';
+        AuthAPI.get(`/api/rooms/${roomId}/`)
+            .then(response => {
+                setRoom(response.data);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+
         var previousPage = document.referrer;
-        
+
         if (previousPage.includes(window.location.origin + '/group_activity/auth/') || previousPage.includes(window.location.origin + '/group_activity/authentication/')) {
             setSelectedTab('activate');
         } else {
             setSelectedTab('member');
         }
     }, []);
+
+    const selectComponent = (tab) => {
+        switch (tab) {
+            case 'member':
+                return <MemberListComponent room={room}/>;
+            case 'activate':
+                return <AuthenticationSpaceComponent room={room}/>;
+            case 'show_log':
+                return <ShowLogComponent room={room}/>;
+            default:
+                return null;
+        }
+    };
 
     return (
         <div id={styles.groupActivatBox}>
@@ -60,28 +57,29 @@ const GroupActivityBase = () => {
                     <p className={styles.whiteTitle}>{room.title}</p>
                     <div className={styles.groupIntroTag}>
                         {
-                            room
+                            room.tags && (room
                                 .tags
-                                .map((tag, index) => (<p key={index}>#{tag}</p>))
+                                .map((tag) => (<p key={tag.id}>#{tag.tag_name}</p>)))
                         }
                     </div>
                     <p className={styles.groupDetail}>{room.detail}</p>
                     <p>
                         인증 {
-                            room.cert_required
+                            room.cert_required && (room.cert_required
                                 ? '필수'
-                                : '선택'
+                                : '선택')
                         }
                         {
-                            room.cert_required && <> 
-                            &nbsp;
-                            벌금 {
-                                room.penalty_value
-                            }
-                            🪙 보증금 {
-                                room.deposit
+                            room.cert_required && <>
+                                &nbsp;
+                                벌금 {
+                                    room.penalty_value
+                                }
+                                🪙 보증금 {
+                                    room.deposit
+                                }
+                                🪙 </>
                         }
-                        🪙 < />}
                     </p>
                 </div>
                 <div id={styles.groupAdminOrWithdraw}>
@@ -96,7 +94,7 @@ const GroupActivityBase = () => {
                 <Link className={selectedTab === 'free_board' ? styles.selectedGroupTab : ''} onClick={() => setSelectedTab('free_board')}>게시판</Link>
             </div>
             <div id={styles.groupActivityContent}>
-                {selectComponent(selectedTab)}
+                {room && selectComponent(selectedTab)}
             </div>
             <div className={styles.footer}>
                 <Link to={`/my_groups`} className={styles.footer_link}>
