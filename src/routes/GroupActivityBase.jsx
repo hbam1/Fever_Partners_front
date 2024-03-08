@@ -1,10 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import styles from "./css/GroupActivityBase.module.css";
-import GroupActivityTab from '../apis/GroupActivityTab';
-import MemberListComponent from './MemberListComponent';
-import AuthenticationSpaceComponent from './AuthenticationSpaceComponent';
-import ShowLogComponent from './ShowLogComponent';
+import MemberListComponent from '../components/MemberListComponent';
+import AuthenticationSpaceComponent from '../components/AuthenticationSpaceComponent';
+import ShowLogComponent from '../components/ShowLogComponent';
 
 // 더미데이터 사용, 나중에 url 수정
 const GroupActivityBase = () => {
@@ -52,7 +51,7 @@ const GroupActivityBase = () => {
             <div id={styles.groupIntrobox}>
                 <div className={`${styles.goalHeader} ${styles.goalHeaderW}`}>
                     <div className={styles.pageBackHeader}>
-                        <Link to='' className={styles.pageBack}>
+                        <Link to='/my_groups' className={styles.pageBack}>
                             <i className="fa-solid fa-chevron-left"></i>
                         </Link>
                     </div>
@@ -91,22 +90,22 @@ const GroupActivityBase = () => {
                 </div>
             </div>
             <div id={styles.groupSelectActivityList}>
-                <a href="#" className={selectedTab === 'member' ? styles.selectedGroupTab : ''} onClick={() => setSelectedTab('member')}>멤버</a>
-                <a href="#" id={styles.authSpace} className={selectedTab === 'activate' ? styles.selectedGroupTab : ''} onClick={() => setSelectedTab('activate')}>인증 공간</a>
-                <a href="#" className={selectedTab === 'show_log' ? styles.selectedGroupTab : ''} onClick={() => setSelectedTab('show_log')}>활동 현황</a>
-                <a href="#" className={selectedTab === 'free_board' ? styles.selectedGroupTab : ''} onClick={() => setSelectedTab('free_board')}>게시판</a>
+                <Link className={selectedTab === 'member' ? styles.selectedGroupTab : ''} onClick={() => setSelectedTab('member')}>멤버</Link>
+                <Link id={styles.authSpace} className={selectedTab === 'activate' ? styles.selectedGroupTab : ''} onClick={() => setSelectedTab('activate')}>인증 공간</Link>
+                <Link className={selectedTab === 'show_log' ? styles.selectedGroupTab : ''} onClick={() => setSelectedTab('show_log')}>활동 현황</Link>
+                <Link className={selectedTab === 'free_board' ? styles.selectedGroupTab : ''} onClick={() => setSelectedTab('free_board')}>게시판</Link>
             </div>
             <div id={styles.groupActivityContent}>
                 {selectComponent(selectedTab)}
             </div>
             <div className={styles.footer}>
-                <Link to={``} className={styles.footer_link}>
+                <Link to={`/my_groups`} className={styles.footer_link}>
                     <div className={styles.footer_item}>
                         <i className="fa-solid fa-user-group footer-icon"></i>
                         <span className={styles.footer_text}>내 그룹</span>
                     </div>
                 </Link>
-                <Link to={``} className={styles.footer_link}>
+                <Link to={`/my_goals`} className={styles.footer_link}>
                     <div className={styles.footer_item}>
                         <i className="fa-solid fa-bullseye footer-icon"></i>
                         <span className={styles.footer_text}>내 목표</span>

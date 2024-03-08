@@ -29,7 +29,7 @@ const Goal = ({ id, title, content, tags, activityTags, isInGroup, isCompleted})
             </p>
             <div className={styles.goal_btns}>
                 <Link className={styles.ac_btn}>삭제</Link>
-                <Link className={styles.ac_btn} style={{ display: isCompleted ? 'none' : 'inline-block' }}>목표 달성 보고</Link>
+                <Link to={`/achievement_report_form/${id}`} className={styles.ac_btn} style={{ display: isCompleted ? 'none' : 'inline-block' }}>목표 달성 보고</Link>
                 <Link className={styles.ac_btn} style={{ display: isInGroup ? 'none' : 'inline-block' }}>그룹추천</Link>
             </div>
         </div>

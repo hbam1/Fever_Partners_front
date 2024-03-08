@@ -32,10 +32,10 @@ function Main() {
                             <Link to={``} onClick={logout}>
                                 <i className="fa-solid fa-right-from-bracket"></i>
                             </Link>
-                            <Link to={``}>
+                            <Link to={`/alarm`}>
                                 <i className="fa-solid fa-bell"></i>
                             </Link>
-                            <Link to={``}>
+                            <Link to={`/user_detail`}>
                                 <i className="fa-solid fa-user"></i>
                             </Link>
                         </span>
@@ -65,13 +65,13 @@ function Main() {
                 </div>
             </div>
             <div className={styles.footer}>
-                <Link to={``} className={styles.footer_link}>
+                <Link to={`/my_groups`} className={styles.footer_link}>
                     <div className={styles.footer_item}>
                         <i className="fa-solid fa-user-group footer-icon"></i>
                         <span className={styles.footer_text}>내 그룹</span>
                     </div>
                 </Link>
-                <Link to={``} className={styles.footer_link}>
+                <Link to={`/my_goals`} className={styles.footer_link}>
                     <div className={styles.footer_item}>
                         <i className="fa-solid fa-bullseye footer-icon"></i>
                         <span className={styles.footer_text}>내 목표</span>
