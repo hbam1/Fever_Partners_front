@@ -1,13 +1,13 @@
 import React from 'react';
 import {useState} from 'react';
 
-function AchievementReportPage({}) {
+function Accept({}) {
 
     return (
         <div>
-            그룹관리
+            인증 수락
         </div>
     );
 }
 
-export default AchievementReportPage;
+export default Accept;
