@@ -1,28 +1,29 @@
 import React, {useEffect, useState} from 'react';
+import { useParams } from 'react-router-dom';
 import {Link} from 'react-router-dom';
 import styles from "./css/GroupActivityBase.module.css";
 import  MemberManagement from '../components/MemberManagement';
-import Accept from '../components/Accept';
-import Invite from '../components/Invite';
+import AuthenticationList from '../components/AuthenticationList';
+import InvitationSearch from '../components/DirectInvitation';
+import RoomSetting from '../components/RoomSetting';
+import Footer from '../components/Footer';
+import {AuthAPI} from "../apis/AuthAPI"
 
-function GroupManagement({}) {
+function GroupManagement() {
     const [selectedTab, setSelectedTab] = useState('');
-    const selectComponent = (tab) => {
-        switch (tab) {
-            case 'memberManagement':
-                return <MemberManagement />;
-            case 'accept':
-                return <Accept />;
-            case 'invite':
-                return <Invite />;
-            // case 'free_board':
-            //     return <FreeBoardComponent />;
-            default:
-                return null;
-        }
-    };
+    const { roomId } = useParams();
+    const [room, setRoom] = useState('');
+
     useEffect(() => {
-        var room_id = '{{ room_id }}';
+
+        AuthAPI.get(`/api/rooms/${roomId}/`)
+            .then(response => {
+                setRoom(response.data);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+
         var previousPage = document.referrer;
         
         if (previousPage.includes(window.location.origin + '/group_activity/auth/') || previousPage.includes(window.location.origin + '/group_activity/authentication/')) {
@@ -31,6 +32,21 @@ function GroupManagement({}) {
             setSelectedTab('memberManagement');
         }
     }, []);
+
+    const selectComponent = (tab) => {
+        switch (tab) {
+            case 'memberManagement':
+                return <MemberManagement masterId={room.master.id} roomId={room.id}/>;
+            case 'accept':
+                return <AuthenticationList roomId={room.id}/>;
+            case 'invite':
+                return <InvitationSearch roomId={room.id}/>;
+            case 'setting':
+                return <RoomSetting roomId={room.id}/>;
+            default:
+                return null;
+        }
+    };
 
     return (
         <div>
@@ -47,31 +63,13 @@ function GroupManagement({}) {
                         <Link className={selectedTab === 'memberManagement' ? styles.selectedGroupTab : ''} onClick={() => setSelectedTab('memberManagement')}>멤버 관리</Link>
                         <Link id={styles.authSpace} className={selectedTab === 'accept' ? styles.selectedGroupTab : ''} onClick={() => setSelectedTab('accept')}>인증 수락</Link>
                         <Link className={selectedTab === 'invite' ? styles.selectedGroupTab : ''} onClick={() => setSelectedTab('invite')}>유저 초대</Link>
+                        <Link className={selectedTab === 'setting' ? styles.selectedGroupTab : ''} onClick={() => setSelectedTab('setting')}>예약 설정</Link>
                     </div>
                     <div id={styles.groupActivityContent}>
-                        {selectComponent(selectedTab)}
+                        {room && selectComponent(selectedTab)}
                     </div>
                 </div>
-                <div className={styles.footer}>
-                <Link to={`/my_groups`} className={styles.footer_link}>
-                    <div className={styles.footer_item}>
-                        <i className="fa-solid fa-user-group footer-icon"></i>
-                        <span className={styles.footer_text}>내 그룹</span>
-                    </div>
-                </Link>
-                <Link to={`/my_goals`} className={styles.footer_link}>
-                    <div className={styles.footer_item}>
-                        <i className="fa-solid fa-bullseye footer-icon"></i>
-                        <span className={styles.footer_text}>내 목표</span>
-                    </div>
-                </Link>
-                <Link to={`/achievement_report_list`} className={styles.footer_link}>
-                    <div className={styles.footer_item}>
-                        <i className="ri-file-list-3-line footer-icon"></i>
-                        <span className={styles.footer_text}>달성보고</span>
-                    </div>
-                </Link>
-            </div>
+                <Footer></Footer>
             </div>
         </div>
     );
