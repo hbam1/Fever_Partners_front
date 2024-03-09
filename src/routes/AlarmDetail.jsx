@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./css/Alarm.module.css";
 import { AuthAPI } from "../apis/AuthAPI";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const AlarmDetail = () => {
   const [alarm, setAlarm] = useState({});
@@ -9,6 +9,7 @@ const AlarmDetail = () => {
   const alarmGoal = alarm?.goal;
   const alarmRoom = alarm?.room;
   const { alarm_id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     AuthAPI.get(`/api/alarms/retrieve/${alarm_id}/`)
@@ -19,6 +20,17 @@ const AlarmDetail = () => {
         console.error(error);
       });
   }, []);
+
+  const handleReject = async (event) => {
+    event.preventDefault();
+
+    try {
+      await AuthAPI.delete(`/api/alarms/reject/${alarm_id}/`);
+      navigate("/alarm");
+    } catch (error) {
+      console.error("API 호출 중 오류 발생:", error);
+    }
+  };
 
   return (
     <div className={styles.contentWrap}>
@@ -85,16 +97,8 @@ const AlarmDetail = () => {
         </div>
         <div className={styles.horizontalBtns}>
           <div>
-            <button
-              onclick="acceptRequest({{alarm.id}})"
-              className={styles.whiteMainBtn}
-            >
-              수락
-            </button>
-            <form
-              method="POST"
-              action="{% url 'alarm:reject_request' alarm.id %}"
-            >
+            <button className={styles.whiteMainBtn}>수락</button>
+            <form onSubmit={handleReject}>
               <button type="submit" className={styles.whiteMainBtn}>
                 거절
               </button>
