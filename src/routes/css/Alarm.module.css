@@ -50,6 +50,8 @@
   width: 90vw;
   display: flex;
   flex-direction: column;
+  gap: 4vh;
+  margin-top: 5vh;
   margin: 0 auto;
   position: relative;
   top: 10vh;
@@ -82,4 +84,27 @@
   border-radius: 15px;
   font-size: 0.8em;
   padding: 0.5em 1.5em;
+}
+
+.horizontalBtns {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3vh;
+}
+
+.horizontalBtns div {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 1vh;
+}
+
+.whiteMainBtn {
+  color: var(--main-color);
+  background-color: white;
+  border-radius: 15px;
+  width: 6em;
+  height: 2em;
+  border: 2px solid var(--main-color);
+  transition: 0.3s;
 }
