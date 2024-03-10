@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { AuthAPI } from "../apis/AuthAPI";
+import styles from "../routes/css/AuthenticationList.module.css";
 
 const AuthenticationList = ({roomId}) => {
     const [authentications, setAuthentications] = useState([]);
@@ -24,16 +25,16 @@ const AuthenticationList = ({roomId}) => {
     };
 
     return (
-        <div>
+        <div className={styles.authenticationList}>
             {authentications.map(auth => (
-                <div key={auth.id}>
-                    <span className="auth-detail-span">{auth.user.nickname}</span>님의 활동 인증 요청
-                    <div className="auth-detail-btns">
+                <div key={auth.id} className={styles.authDetail}>
+                    <p><span className={styles.authDetailSpan}>{auth.user.nickname}</span>님의 활동 인증 요청</p>
+                    <div className={styles.authDetailBtns}>
                         <button onClick={() => acceptAuth(auth.id, auth.room)}>
-                            <i className="ri-checkbox-circle-line y"></i>
+                            <i className={`${styles.authIcon} ri-checkbox-circle-line y`} style={{ color: '#db4455' }}></i>
                         </button>
                         <button onClick={() => refuseAuth(auth.id, auth.room)}>
-                            <i className="ri-close-circle-line n"></i>
+                            <i className={`${styles.authIcon} ri-close-circle-line n`}></i>
                         </button>
                     </div>
                 </div>

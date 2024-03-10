@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { AuthAPI } from "../apis/AuthAPI";
+import styles from "../routes/css/Invite.module.css";
 
 const InvitationSearch = ({ roomId }) => {
     const [searchKeyword, setSearchKeyword] = useState('');
@@ -40,15 +41,15 @@ const InvitationSearch = ({ roomId }) => {
     };
 
     return (
-        <div className="i_m_d">
-            <p className="invite_user_p">유저 닉네임을 직접 입력해서 멤버를 초대하세요!</p>
-            <input type="text" id="nickname" placeholder="유저 닉네임을 입력하세요" value={searchKeyword} onChange={handleInputChange} />
-            <div id="searchResults">
+        <div className={styles.inviteWrap}>
+            <p className={styles.inviteUser}>유저 닉네임을 직접 입력해서 멤버를 초대하세요!</p>
+            <input type="text" id={styles.nickname} placeholder="유저 닉네임을 입력하세요" value={searchKeyword} onChange={handleInputChange} />
+            <div id={styles.searchResults}>
                 {searchKeyword !== '' && searchResults.length > 0 ? (
                     searchResults.map(result => (
                         <div key={result.id}>
                             <span>{result.nickname}</span>
-                            <button id={`suggest-btn-${result.id}`} className="direct-invitation-button" onClick={() => suggestDirectJoin(result.id)}>가입제안</button>
+                            <button id={`suggest-btn-${result.id}`} className={styles.inviteButton} onClick={() => suggestDirectJoin(result.id)}>가입제안</button>
                         </div>
                     ))
                 ) : (

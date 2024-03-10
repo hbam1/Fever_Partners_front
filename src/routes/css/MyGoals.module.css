@@ -130,9 +130,6 @@ body, html {
     margin-bottom: 3vh;
 }
 
-.group_div:hover {
-    transform: scale(1.02);
-}
 .group_div h3,
 .group_div a,
 .group_div i {
@@ -173,9 +170,6 @@ a.ac_btn {
     margin-top: 1vh;
 }
 
-a.ac_btn:hover {
-    background-color: var(--hover-color); 
-}
 
 .no-ac {
     display: flex;
@@ -197,6 +191,9 @@ a.ac_btn:hover {
 }
 .goal_btns {
     margin-top: 1vh;
+}
+.goal_btns a{
+    margin-right: 10px;
 }
 .member-recom {
     display: flex;
@@ -228,9 +225,6 @@ a.ac_btn:hover {
     border-radius: 4px;
 }
 
-.join-button:hover {
-    background-color: #c4324a;
-}
 .h5 {
     display: flex;
     align-items: center;

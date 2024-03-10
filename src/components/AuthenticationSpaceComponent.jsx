@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { AuthAPI } from "../apis/AuthAPI"
+import { AuthAPI } from "../apis/AuthAPI";
+import styles from "../routes/css/Authentication.module.css";
 
 const AuthenticationSpaceComponent = (room) => {
     const [authentications, setAuthentications] = useState([]);
@@ -39,42 +40,42 @@ const AuthenticationSpaceComponent = (room) => {
     };
 
     return (
-        <div id="activate-auths">
+        <div id={styles["activate-auths"]}>
             {authentications.map(auth => {
                 const startDateTime = new Date(auth.start);
                 const endDateTime = new Date(auth.end);
                 return (
-                    <div key={auth.id} id={`auth-${auth.id}`} className="activate-auth">
+                    <div key={auth.id} id={`auth-${auth.id}`} className={styles["activate-auth"]}>
                         
                         {startDateTime > currentTime && (
                             <>
-                                <div className="gray-08em v1">아직 인증이 시작되지 않았습니다</div>
-                                <div className="gray-08em">인증시간</div>
+                                <div className={`${styles["gray-08em"]} v1`}>아직 인증이 시작되지 않았습니다</div>
+                                <div className={styles["gray-08em"]}>인증시간</div>
                                 <div>{auth.start}</div>
                             </>
                         )}
                         {endDateTime < currentTime && (
                             <>
-                                <div className="gray-08em v1">이미 종료된 인증입니다.</div>
-                                <div className="gray-08em">[ 인증시간 ]</div>
+                                <div className={`${styles["gray-08em"]} v1`}>이미 종료된 인증입니다.</div>
+                                <div className={styles["gray-08em"]}>[ 인증시간 ]</div>
                                 <div>{auth.start}</div>
-                                <div className="activate-auth-bottom">
+                                <div className={styles["activate-auth-bottom"]}>
                                     <div></div>
-                                    <a onClick={() => closeAuth(auth.id)} className="blue-bc-text">인증마감</a>
+                                    <a onClick={() => closeAuth(auth.id)} className={styles["blue-bc-text"]}>인증마감</a>
                                 </div>
                             </>
                         )}
                         {startDateTime <= currentTime && endDateTime >= currentTime && (
                             <>
-                                <div className="main-color-08em v1">현재 활성화 된 인증</div>
-                                <div className="gray-08em">[ 인증시간 ]</div>
+                                <div className={`${styles["main-color-08em"]} v1`}>현재 활성화 된 인증</div>
+                                <div className={styles["gray-08em"]}>[ 인증시간 ]</div>
                                 <div>{auth.start}</div>
-                                <div className="activate-auth-bottom">
+                                <div className={styles["activate-auth-bottom"]}>
                                     <div></div>
                                     {auth.participated ? (
-                                        <div className="green-bc-text">참여완료</div>
+                                        <div className={styles["green-bc-text"]}>참여완료</div>
                                     ) : (
-                                        <a href={`/group_activity/create_authentication/${room_id}/${auth.id}`} onClick={() => checkCurTime(auth.end)} className="auth-btn-style red-btn">인증하기</a>
+                                        <a href={`/group_activity/create_authentication/${room_id}/${auth.id}`} onClick={() => checkCurTime(auth.end)} className={styles["auth-btn-style red-btn"]}>인증하기</a>
                                     )}
                                 </div>
                             </>

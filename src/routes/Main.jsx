@@ -77,7 +77,7 @@ function Main() {
                         <span className={styles.footer_text}>내 목표</span>
                     </div>
                 </Link>
-                <Link to={`/achievement_report_list`} className={styles.footer_link}>
+                <Link to={"/achievement_report_list"} className={styles.footer_link}>
                     <div className={styles.footer_item}>
                         <i className="ri-file-list-3-line footer-icon"></i>
                         <span className={styles.footer_text}>달성보고</span>

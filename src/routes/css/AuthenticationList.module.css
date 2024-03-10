@@ -1,0 +1,20 @@
+.authDetail{
+    margin: 0 10px;
+    margin-top: 3vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.authDetailBtns {
+    display: flex;
+}
+
+.authDetailBtns button {
+    margin-right: 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+.authDetailBtns button i {
+    font-size: 20px;
+}

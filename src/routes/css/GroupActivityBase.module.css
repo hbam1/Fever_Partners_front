@@ -154,10 +154,16 @@ body, html {
 }
 
 #groupActivityContent {
-  height: 41vh;
   padding: 2vh;
+  height: 41vh;
+  overflow-y: auto;
+  margin-bottom: 15vh;
 }
-
+#groupManageMentContent {
+  padding: 2vh;
+  overflow-y: auto;
+  margin-bottom: 15vh;
+}
 /* footer */
 .footer {
   position: fixed;

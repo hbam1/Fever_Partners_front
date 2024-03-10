@@ -1,0 +1,42 @@
+:root {
+    --main-color: #db4455;
+    --gray: #838383;
+    --red: #EB0000;
+    --green: #00AD26;
+    --white-color: #ffffff;
+    --gray2-color: #A9A9A9;
+    --font-color: #6b6b6b;
+}
+.authLog {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+.authLog p {
+    margin-bottom: 5px;
+}
+.gray08em {
+    color: #888;
+    font-size: 0.8em;
+}
+
+.authText {
+    display: flex;
+    align-items: center;
+}
+
+.authText i {
+    margin-right: 5px;
+    color: #00AD26;
+}
+.authText p {
+    margin-top: 5px;
+}
+.authSuccess {
+    color: var(--green);
+}
+
+.authFail {
+    color: red;
+}
