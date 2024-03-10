@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { AuthAPI } from "../apis/AuthAPI";
 import noImage from "../assets/noImage.png";
+import styles from "../routes/css/MemberManagement.module.css";
 
 const MemberManagement = ({ masterId, roomId }) => {
     const [members, setMembers] = useState([]);
@@ -30,17 +31,17 @@ const MemberManagement = ({ masterId, roomId }) => {
         <div>
             {members.map(member => (
                 member.id !== masterId && (
-                    <div key={member.id} id={`member-${member.id}`} className="member-card">
-                        <div className="member-info">
+                    <div key={member.id} id={`member-${member.id}`} className={styles.memberCard}>
+                        <div className={styles.memberInfo}>
                             <img
                                 src={member.profile_image ? member.profile_image : noImage}
                                 alt="프로필 이미지"
-                                className="profile-image-group"
+                                className={styles.profileImageGroup}
                             />
-                            <h3 className="member-nickname">{member.nickname}</h3>
-                            <div className="action-buttons">
-                                <button className="action-button" onClick={() => expelMember(member.id, roomId)}>추방</button>
-                                <button className="action-button" onClick={() => transferMaster(member.id, roomId)}>관리장 위임</button>
+                            <h3 className={styles.memberNickname}>{member.nickname}</h3>
+                            <div className={styles.actionButtons}>
+                                <button className={styles.actionButton} onClick={() => expelMember(member.id, roomId)}>추방</button>
+                                <button className={styles.actionButton} onClick={() => transferMaster(member.id, roomId)}>관리장 위임</button>
                             </div>
                         </div>
                     </div>

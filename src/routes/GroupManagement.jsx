@@ -52,7 +52,7 @@ function GroupManagement() {
         <div>
             <div id={styles.GroupManagementBox}>
                 <div className={styles.header}>
-                        <Link className={styles.goBack} to="/group_activity/${id}">
+                        <Link className={styles.goBack} to={`/group_activity/${roomId}`}>
                             <i className="ri-arrow-left-s-line"></i>
                         </Link>
                         <p style={{ color: "white" }}>그룹 관리 페이지</p>
@@ -65,7 +65,7 @@ function GroupManagement() {
                         <Link className={selectedTab === 'invite' ? styles.selectedGroupTab : ''} onClick={() => setSelectedTab('invite')}>유저 초대</Link>
                         <Link className={selectedTab === 'setting' ? styles.selectedGroupTab : ''} onClick={() => setSelectedTab('setting')}>예약 설정</Link>
                     </div>
-                    <div id={styles.groupActivityContent}>
+                    <div id={styles.groupManageMentContent}>
                         {room && selectComponent(selectedTab)}
                     </div>
                 </div>

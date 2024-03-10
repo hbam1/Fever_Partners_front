@@ -1,0 +1,54 @@
+:root {
+    --main-color: #db4455;
+    --gray: #838383;
+    --red: #EB0000;
+    --green: #00AD26;
+    --white-color: #ffffff;
+    --gray2-color: #A9A9A9;
+    --font-color: #6b6b6b;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+label p {
+    margin-bottom: 10px;
+    color: var(--font-color);
+}
+input[type="time"],
+select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+div {
+    margin-bottom: 10px;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: var(--main-color);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked + label {
+    font-weight: bold;
+}
+
+form div p {
+    color: var(--font-color);
+}

@@ -1,0 +1,48 @@
+:root {
+    --main-color: #db4455;
+    --gray: #838383;
+    --red: #EB0000;
+    --green: #00AD26;
+    --white-color: #ffffff;
+    --gray2-color: #A9A9A9;
+    --font-color: #6b6b6b;
+}
+
+.groupMemberIntro {
+    border: 1.5px solid var(--main-color);
+    border-radius: 8px;
+    display: flex;
+    margin-top: 2vh;
+}
+
+.groupMasterIntro {
+    border-radius: 8px;
+    display: flex;
+    border: var(--main-color) 1.5px solid;
+}
+
+.profileImageGroup {
+    height: 5em;
+    width: 5em;
+    /* border: 1px solid var(--main-color); */
+    border-radius: 50%;
+    margin: 1em;
+}
+
+.memberIntroText {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    justify-content: center;
+}
+.memberIntroText img {
+    width: 20px;
+    height: 20px;
+}
+.memberIntroText h3 {
+    font-size: large;
+}
+
+.memberFieldSpan {
+    color: var(--main-color);
+}

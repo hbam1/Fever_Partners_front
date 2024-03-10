@@ -137,7 +137,7 @@ const GroupCreationForm = () => {
       }
     }
     if (Object.keys(errors).length === 0) {
-      AuthAPI.post('/api/rooms/create/', {
+      AuthAPI.post('/api/rooms/', {
         'goal_id': goal,
         'title': title,
         'detail': detail,

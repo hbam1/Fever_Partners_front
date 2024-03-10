@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { AuthAPI } from "../apis/AuthAPI";
+import styles from "../routes/css/RoomSetting.module.css";
 
 const RoomSetting = ({roomId}) => {
     const [startTime, setStartTime] = useState('');
@@ -39,12 +40,12 @@ const RoomSetting = ({roomId}) => {
     return (
         <form onSubmit={handleSubmit}>
             <label>
-                시작 시간:
+                <p>시작 시간:</p>
                 <input type="time" value={startTime} onChange={handleStartTimeChange} />
             </label>
             <br />
             <label>
-                지속 시간:
+                <p>지속 시간:</p>
                 <select value={duration} onChange={handleDurationChange}>
                     <option value="30">30분</option>
                     <option value="60">1시간</option>
@@ -54,7 +55,7 @@ const RoomSetting = ({roomId}) => {
             </label>
             <br />
             <div>
-                요일 설정
+                <p>요일 설정</p>
                 <div>
                     <input type="checkbox" id="mon" value="mon" checked={selectedDays.includes("mon")} onChange={handleDayChange} />
                     <label htmlFor="mon" style={{ fontWeight: selectedDays.includes("mon") ? 'bold' : 'normal' }}>월요일</label>

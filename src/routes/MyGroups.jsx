@@ -29,11 +29,11 @@ const MyGroups = () => {
     return (
         <div>
             <header className={styles.header}>
-                <Link className={styles.go_back} href="">
-                    <i class="ri-arrow-left-s-line"></i>
+                <Link className={styles.go_back} to="/main">
+                    <i className="ri-arrow-left-s-line"></i>
                 </Link>
                 <p>그룹</p>
-                <i class="ri-arrow-left-s-line" style={{ color: "white" }}></i>
+                <i className="ri-arrow-left-s-line" style={{ color: "white" }}></i>
             </header>
             <div className={styles.group_wrap}>
                 {userGroups.map((group) => (

@@ -1,0 +1,54 @@
+:root {
+    --main-color: #db4455;
+    --gray: #838383;
+    --green: #00AD26;
+    --white-color: #ffffff;
+    --gray-color: #A9A9A9;
+    --font-color: #6b6b6b;
+  }
+  
+.inviteWrap {
+    margin-top: 20px;
+}
+
+.inviteUser {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+#nickname {
+    width: 300px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+#searchResults {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+#searchResults > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin : 10px;
+    margin-bottom: 20px;
+}
+
+#searchResults span {
+    color: var(--font-color);
+}
+
+.inviteButton {
+    padding: 8px 10px;
+    background-color: var(--main-color);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#searchResults > div > span {
+    color: #6b6b6b;
+}

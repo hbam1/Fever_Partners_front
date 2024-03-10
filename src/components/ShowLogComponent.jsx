@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import {AuthAPI} from "../apis/AuthAPI"
+import { AuthAPI } from "../apis/AuthAPI";
+import styles from "../routes/css/ShowLog.module.css";
 
 const ShowLogComponent = (room) => {
     const [authLogs, setAuthLogs] = useState([]);
@@ -17,19 +18,19 @@ const ShowLogComponent = (room) => {
     }, []);
 
     return (
-        <div id="auth-logs">
+        <div className={styles.authLogs}>
             {authLogs.map(auth => (
-                <div key={auth.id} className="auth-log">
-                    <p className="gray-08em">{auth.created_date}</p>
+                <div key={auth.id} className={styles.authLog}>
+                    <p className={styles.gray08em}>{auth.created_date}</p>
                     {auth.is_auth ? (
-                        <div className="auth-text">
-                            <i className="ri-checkbox-circle-fill"></i>
-                            <p><span className="main-color-bold">{auth.user.nickname}</span>님이 인증을 <span className="auth-success">성공</span>했습니다.</p>
+                        <div className={styles.authText}>
+                            <i className={`ri-checkbox-circle-fill ${styles.authIcon}`}></i>
+                            <p><span className={styles.mainColorBold}>{auth.user.nickname}</span>님이 인증을 <span className={styles.authSuccess}>성공</span>했습니다.</p>
                         </div>
                     ) : (
-                        <div className="auth-text">
-                            <i className="ri-close-circle-fill"></i>
-                            <p><span className="main-color-bold">{auth.user.nickname}</span>님이 인증을 <span className="auth-fail">실패</span>했습니다.</p>
+                        <div className={styles.authText}>
+                            <i className={`ri-close-circle-fill ${styles.authIcon}`} style={{ color: 'red' }}></i>
+                            <p><span className={styles.mainColorBold}>{auth.user.nickname}</span>님이 인증을 <span className={styles.authFail}>실패</span>했습니다.</p>
                         </div>
                     )}
                 </div>
