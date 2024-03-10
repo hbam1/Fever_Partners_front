@@ -26,3 +26,85 @@
 .goBackLink i {
   color: var(--main-color);
 }
+
+/* 공용 */
+.mainColorText {
+  color: var(--main-color);
+}
+
+.contentWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.fs15emBold {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+/* 알림창 */
+.alarmContentMain {
+  height: 90vh;
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  gap: 4vh;
+  margin-top: 5vh;
+  margin: 0 auto;
+  position: relative;
+  top: 10vh;
+}
+
+.alarmContentMain > ul {
+  padding: 0;
+  margin-top: 5vh;
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+  overflow-y: scroll;
+}
+
+.alarmContentMain > ul::-webkit-scrollbar {
+  display: none;
+}
+
+.alarmContentMain > ul > li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.requestDetailBtn {
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  background-color: var(--main-color);
+  border-radius: 15px;
+  font-size: 0.8em;
+  padding: 0.5em 1.5em;
+}
+
+.horizontalBtns {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3vh;
+}
+
+.horizontalBtns div {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 1vh;
+}
+
+.whiteMainBtn {
+  color: var(--main-color);
+  background-color: white;
+  border-radius: 15px;
+  width: 6em;
+  height: 2em;
+  border: 2px solid var(--main-color);
+  transition: 0.3s;
+}
