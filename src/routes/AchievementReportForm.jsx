@@ -1,7 +1,7 @@
 import React from 'react';
 import {useState} from 'react';
 
-function AchievementReportPage({}) {
+function AchievementReportForm({}) {
 
     return (
         <div>
@@ -10,4 +10,4 @@ function AchievementReportPage({}) {
     );
 }
 
-export default AchievementReportPage;
+export default AchievementReportForm;

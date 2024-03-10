@@ -29,7 +29,7 @@ const MyGroups = () => {
     return (
         <div>
             <header className={styles.header}>
-                <Link className={styles.go_back} href="">
+                <Link className={styles.go_back} to="/main">
                     <i class="ri-arrow-left-s-line"></i>
                 </Link>
                 <p>그룹</p>
