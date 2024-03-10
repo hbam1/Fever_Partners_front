@@ -8,7 +8,7 @@ const Alarm = () => {
   const [currentUser, setCurrentUser] = useState();
 
   useEffect(() => {
-    AuthAPI.get("/api/alarms/list/")
+    AuthAPI.get("/api/users/alarms/")
       .then((response) => {
         setAlarms(response.data);
       })

@@ -13,7 +13,7 @@ const AlarmDetail = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    AuthAPI.get(`/api/alarms/retrieve/${alarm_id}/`)
+    AuthAPI.get(`/api/users/alarms/${alarm_id}/`)
       .then((response) => {
         setAlarm(response.data);
       })
@@ -33,23 +33,23 @@ const AlarmDetail = () => {
       });
   }, []);
 
-  // 수락을 눌렀을 때
+  // 거절을 눌렀을 때
   const handleReject = async (event) => {
     event.preventDefault();
 
     try {
-      await AuthAPI.delete(`/api/alarms/reject/${alarm_id}/`);
+      await AuthAPI.delete(`/api/users/alarms/${alarm_id}/reject/`);
       navigate("/alarm");
     } catch (error) {
       console.error("API 호출 중 오류 발생:", error);
     }
   };
 
-  //거절을 눌렀을 때
+  // 수락을 눌렀을 때
   const handleAccept = async (event) => {
     event.preventDefault();
     try {
-      await AuthAPI.delete(`/api/alarms/accept/${alarm_id}/`);
+      await AuthAPI.delete(`/api/users/alarms/${alarm_id}/accept/`);
       navigate("/alarm");
     } catch (error) {
       console.error("API 호출 중 오류 발생:", error);
