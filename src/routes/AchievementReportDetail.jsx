@@ -44,7 +44,7 @@ const AchievementReportDetail = () => {
                             <div>{report.content}</div>
                         </div>
                         {report.image && (
-                            <img className={styles.reportImage} src={report.image.url} alt="이미지" />
+                            <img className={styles.reportImage} src={report.image} alt="이미지" />
                         )}
                         <br />
                         <div className={styles.reportReactionBtns}>
