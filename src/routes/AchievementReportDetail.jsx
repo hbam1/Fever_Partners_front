@@ -9,7 +9,7 @@ const AchievementReportDetail = () => {
 
     useEffect(() => {
         AuthAPI
-            .get(`/api/goals/achievement_reports/${id}/`)
+            .get(`/api/goals/achievement_reports/detail/${id}/`)
             .then(response => {
                 setReportDetail(response.data);
                 console.log(response.data);

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { AuthAPI } from "../apis/AuthAPI";
 import styles from "./css/Form.module.css";
-import { Link } from "react-router-dom";
 
 function AchievementReportForm() {
     const { id } = useParams();
@@ -24,7 +23,7 @@ function AchievementReportForm() {
         if (id) {
             fetchData();
         }
-    }, []);
+    }, [id]);
 
     const handleContentChange = (event) => {
         setContent(event.target.value);
@@ -34,41 +33,40 @@ function AchievementReportForm() {
         setImage(event.target.files[0]);
     };
 
-    const handleSubmit = () => {
-        const formData = new FormData();
-        formData.append('content', content);
-        if (image) {
-            formData.append('image', image);
-        }
-        formData.append('goal_id', goal.id); 
-        const achievementContentWarning = document.getElementById(
-            "achievement-content-warning"
-        );
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(event.target);
+        formData.append('goal', id);
+        console.log(formData.get('image'));
+
+        const achievementContentWarning = document.getElementById("achievement-content-warning");
         achievementContentWarning.innerHTML = "";
-    
+
         // 유효성 검사
         if (content.trim() === '') {
             achievementContentWarning.innerHTML = '내용을 입력해주세요.';
             setIsValid(false);
+            return;
         } else {
             setIsValid(true);
         }
-    
+
         if (isValid) {
-            AuthAPI.post(`/api/goals/achievement_reports/`, formData) 
-            .then((response) => {
-                if (response.ok) {
-                    window.location.href = window.location.origin + "/goal/achievement_report/report_list";
-                }
-            })
-            .catch((error) => {
-                console.error("Error:", error);
-            });
+            AuthAPI.post(`/api/goals/achievement_reports/create/${id}/`, formData)
+                .then((response) => {
+                    if (response.status === 201) { 
+                        window.location.href = window.location.origin + "/goal/achievement_report/report_list";
+                    }
+                })
+                .catch((error) => {
+                    console.error("Error:", error);
+                });
         }
     };
-    
+
     return (
-        <div>
+        <form className={styles.form} onSubmit={handleSubmit} encType="multipart/form-data">
             <div className={styles.header}>
                 <Link className={styles.goBack} to="/my_goals">
                     <i className="ri-arrow-left-s-line"></i>
@@ -90,7 +88,7 @@ function AchievementReportForm() {
                             name="content"
                             rows="4"
                             cols="50"
-                            required="required"
+                            required
                             value={content}
                             onChange={handleContentChange}
                         ></textarea>
@@ -105,7 +103,7 @@ function AchievementReportForm() {
                             onChange={handleImageChange}
                         />
                         <div className={styles.btn}>
-                            <button type="button" onClick={handleSubmit}>보고하기</button>
+                            <button type="submit">보고하기</button>
                         </div>
                     </div>
                 </div>
@@ -131,7 +129,7 @@ function AchievementReportForm() {
                     </div>
                 </Link>
             </div>
-        </div>
+        </form>
     );
 }
 

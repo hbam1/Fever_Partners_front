@@ -15,8 +15,7 @@ export const LoginAPI = axios.create({
 export const AuthAPI = axios.create({
   baseURL: "http://localhost:8000",
   headers: {
-    "Content-Type": "application/json",
-    Authorization: `Bearer ${ACCESS_TOKEN}`,
+    "Authorization": `Bearer ${ACCESS_TOKEN}`,
   },
 });
 
