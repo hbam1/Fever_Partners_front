@@ -38,7 +38,6 @@ function AchievementReportForm() {
 
         const formData = new FormData(event.target);
         formData.append('goal', id);
-        console.log(formData.get('image'));
 
         const achievementContentWarning = document.getElementById("achievement-content-warning");
         achievementContentWarning.innerHTML = "";
@@ -55,7 +54,7 @@ function AchievementReportForm() {
         if (isValid) {
             AuthAPI.post(`/api/goals/achievement_reports/create/${id}/`, formData)
                 .then((response) => {
-                    if (response.status === 201) { 
+                    if (response.status >= 200) { 
                         window.location.href = window.location.origin + "/goal/achievement_report/report_list";
                     }
                 })
