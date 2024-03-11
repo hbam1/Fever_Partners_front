@@ -15,18 +15,8 @@ const AlarmDetail = () => {
   useEffect(() => {
     AuthAPI.get(`/api/users/alarms/${alarm_id}/`)
       .then((response) => {
+        console.log(response.data);
         setAlarm(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
-
-  // 현재 로그인 한 유저 정보를 가져옴
-  useEffect(() => {
-    AuthAPI.get("/api/users/current/detail/")
-      .then((response) => {
-        setCurrentUser(response.data);
       })
       .catch((error) => {
         console.error(error);
@@ -68,7 +58,7 @@ const AlarmDetail = () => {
       </div>
 
       {/* 현재 유저가 그룹장인지 멤버인지 구분해서 알림 디테일 표시 */}
-      {currentUser?.id === alarmRoom?.master.id ? (
+      {alarmRoom?.alarm_to === alarmRoom?.master ? (
         <div className={styles.alarmContentMain}>
           <p className={styles.fs15emBold}>
             <span className={styles.mainColorText}>{alarmFrom?.nickname}</span>{" "}
@@ -135,13 +125,7 @@ const AlarmDetail = () => {
           <p>
             방장:{" "}
             <span className={styles.mainColorText}>
-              {alarmRoom?.master.nickname}
-            </span>
-          </p>
-          <p>
-            방장의 Fever:{" "}
-            <span className={styles.mainColorText}>
-              {alarmRoom?.master.fuel}
+              {alarmFrom?.nickname}
             </span>
           </p>
           <p>

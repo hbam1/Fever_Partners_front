@@ -5,23 +5,12 @@ import { Link } from "react-router-dom";
 
 const Alarm = () => {
   const [alarms, setAlarms] = useState([]);
-  const [currentUser, setCurrentUser] = useState();
 
   useEffect(() => {
     AuthAPI.get("/api/users/alarms/")
       .then((response) => {
+        console.log('Alarms', response.data);
         setAlarms(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
-
-  // 현재 로그인 한 유저 정보를 가져옴
-  useEffect(() => {
-    AuthAPI.get("/api/users/current/detail/")
-      .then((response) => {
-        setCurrentUser(response.data);
       })
       .catch((error) => {
         console.error(error);
@@ -47,8 +36,7 @@ const Alarm = () => {
                 <span className={styles.mainColorText}>
                   {alarm.alarm_from.nickname}
                 </span>{" "}
-                {/* 현재 유저가 그룹장인지 멤버인지 구분해서 알림 표시 */}
-                {currentUser?.id === alarm.room?.master.id
+                {alarm.alarm_to === alarm.room.master
                   ? " 님이 그룹가입 신청"
                   : " 님이 그룹가입 제안"}
               </p>
